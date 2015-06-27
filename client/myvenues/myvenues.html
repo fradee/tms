@@ -1,0 +1,72 @@
+<template name="myVenues">
+
+{{#if serched}}
+<div class="row-fluid">
+<table class="table tmstable">
+<thead>
+	<tr>
+		<th class="col-xs-2">&nbsp;</th>
+		<th class="col-xs-2">Search request</th>
+		<th class="col-xs-2">Lat</th>
+		<th class="col-xs-2">Lng</th>
+		<th class="col-xs-2">Radius or Square</th>
+		<th class="col-xs-2">Date</th>
+	</tr>
+</thead>
+<tbody>
+{{#each serched}} 
+<tr class={{# if activate_row _id}}active{{/if}}>
+	<td class="col-xs-2"><a href="" class="btn btn-default btn-sm view"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> View</a> <a href="" class="btn btn-default btn-sm delete"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete</a></td>
+	<td class="col-xs-2">{{searchrequest}}</td>
+	<td class="col-xs-2">{{lat}}</td>
+	<td class="col-xs-2">{{lng}}</td>
+	<td class="col-xs-2">{{# if equals square 0 }} {{radius}} m {{else}} {{square}} km2 {{/if}}</td>
+	<td class="col-xs-2">{{ formatDate searched}}</td>
+	
+</tr>
+{{/each}}
+</tbody>
+</table>
+</div>
+{{/if}}
+
+{{> map}}
+
+
+{{#if countVenues}}
+
+<div class="row-fluid">
+<table class="table tmstable">
+<thead>
+	<tr>
+		<th colspan="4">
+		{{countVenues}} venues
+		</th>
+		<th>
+		<a href="" class="btn btn-default btn-sm csv"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Export to CSV</a>
+		</th>
+	</tr>
+	<tr>
+		<th>Name</th>
+		<th>City</th>
+		<th>Address</th>
+		<th>Lat</th>
+		<th>Lng</th>
+	</tr>
+</thead>
+<tbody>
+{{#each venues}} 
+<tr>
+	<td>{{name}}</td>
+	<td>{{location.city}}</td>
+	<td>{{location.address}}</td>
+	<td>{{location.lat}}</td>
+	<td>{{location.lng}}</td>
+</tr>
+{{/each}}
+</tbody>
+</table>
+</div>
+{{/if}}
+
+</template>

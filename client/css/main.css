@@ -1,0 +1,15 @@
+body {
+	background: #eee;
+	color: #666666;
+}
+#map_canvas
+{
+	margin: 0;
+	padding: 0;
+	height: 400px;
+	width: 100%;
+	margin-bottom: 20px;
+	}
+.tmstable {
+	background: #fff;
+}

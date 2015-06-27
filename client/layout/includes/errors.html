@@ -1,0 +1,31 @@
+<template name="errors">
+	<div class="errors row-fluid">
+	{{#each errors}}
+		{{> error}}
+	{{/each}}	
+	</div>
+</template>
+<template name="error">
+	{{#if equals type 'warning'}}
+	<div class="alert alert-warning">
+		<button class="close" type="button," data-dismiss="alert">&times;</button>
+		{{message}}
+	</div>
+	{{/if}}
+
+	{{#if equals type 'info'}}
+	<div class="alert alert-success">
+		<button class="close" type="button," data-dismiss="alert">&times;</button>
+		{{message}}
+	</div>
+	{{/if}}
+
+	{{#if equals type 'danger'}}
+	<div class="alert alert-danger">
+		<button class="close" type="button," data-dismiss="alert">&times;</button>
+		{{message}}
+	</div>
+	{{/if}}
+
+
+</template>

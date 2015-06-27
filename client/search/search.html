@@ -1,0 +1,41 @@
+<template name="Search">
+<form action="" class="form-horizontal">
+		<div class="form-group">
+			<div class="col-xs-11">
+			<input type="text" name="searchRequest" placeholder="Enater name venue" class="form-control">
+			</div>
+			<input type="submit" class="btn btn-default" value="Find">
+		</div>
+		
+</form>
+{{> map}}
+{{#if serched}}
+<div class="row-fluid">
+<table class="table tmstable">
+<thead>
+	<tr>
+		<th>&nbsp;</th>
+		<th>Search request</th>
+		<th>Lat</th>
+		<th>Lng</th>
+		<th>Radius or Square</th>
+		<th>Date</th>
+	</tr>
+</thead>
+<tbody>
+{{#each serched}} 
+<tr class={{#if equals _id id}}active{{/if}}>
+	<td><a href="" class="btn btn-default btn-sm view"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> View</a> <a href="" class="btn btn-default btn-sm delete"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete</a></td>
+	<td>{{searchrequest}}</td>
+	<td>{{lat}}</td>
+	<td>{{lng}}</td>
+	<td>{{# if equals square 0 }} {{radius}} m {{else}} {{square}} km2 {{/if}}</td>
+	<td>{{ formatDate searched}}</td>
+	
+</tr>
+{{/each}}
+</tbody>
+</table>
+</div>
+{{/if}}
+</template>
